@@ -14,4 +14,6 @@ recipe "java::oracle_i386", "Installs the 32-bit jvm without setting it as the d
   supports os
 end
 
-supports "mac_os_x", "~> 10.6.0"
+supports "mac_os_x", "~> 10.7.0"
+
+depends "dmg", "~> 0.7.0"
