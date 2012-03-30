@@ -75,6 +75,12 @@ This recipe installs the 32-bit Java virtual machine without setting
 it as the default. This can be useful if you have applications on the
 same machine that require different versions of the JVM.
 
+apple
+-----
+
+This recipe installs the Apple distributed flavor of Java from DMG. This
+recipe is only supported on OSX nodes.
+
 Resources/Providers
 ===================
 
