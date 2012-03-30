@@ -31,6 +31,9 @@ when "arch"
   default['java']['java_home'] = "/usr/lib/jvm/java-#{java['jdk_version']}-openjdk"
 when "mac_os_x"
   set['java']['install_flavor'] = "apple"
+  set['java']['jdk_version'] = '6'
+  
+  default['java']['java_home'] = "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
 else
   default['java']['java_home'] = "/usr/lib/jvm/default-java"
 end
