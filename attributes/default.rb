@@ -31,7 +31,7 @@ when "arch"
   default['java']['java_home'] = "/usr/lib/jvm/java-#{java['jdk_version']}-openjdk"
 when "mac_os_x"
   set['java']['install_flavor'] = "apple"
-  set['java']['jdk_version'] = '6'
+  set['java']['jdk_version'] = "6"
   
   default['java']['java_home'] = "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
 else
@@ -42,11 +42,17 @@ case platform
 when "mac_os_x"
   case
   when Chef::VersionConstraint.new("~> 10.7.0").include?(platform_version)
-    default['java']['jdk']['6']['x86_64']['url'] = "http://support.apple.com/downloads/DL1421/en_US/JavaForMacOSX10.7.dmg"
-    default['java']['jdk']['6']['x86_64']['checksum'] = "bffb2718c355340530c662fde9cbccaa"
+    default['java']['jdk']['6']['x86_64']['url']             = "http://support.apple.com/downloads/DL1421/en_US/JavaForMacOSX10.7.dmg"
+    default['java']['jdk']['6']['x86_64']['checksum']        = "bffb2718c355340530c662fde9cbccaa"
+    default['java']['jdk']['6']['x86_64']['osx_volumes_dir'] = "Java for Mac OS X 10.7"
+    default['java']['jdk']['6']['x86_64']['osx_app_name']    = "JavaForMacOSX10.7"
+    default['java']['jdk']['6']['x86_64']['osx_package_id']  = "com.apple.pkg.JavaForMacOSX107"
   when Chef::VersionConstraint.new("~> 10.6.0").include?(platform_version)
-    default['java']['jdk']['6']['x86_64']['url'] = "http://support.apple.com/downloads/DL1360/en_US/JavaForMacOSX10.6.dmg"
-    default['java']['jdk']['6']['x86_64']['checksum'] = "9a5ac074457c7500a133bf9e2f3bab0b"
+    default['java']['jdk']['6']['x86_64']['url']             = "http://support.apple.com/downloads/DL1360/en_US/JavaForMacOSX10.6.dmg"
+    default['java']['jdk']['6']['x86_64']['checksum']        = "9a5ac074457c7500a133bf9e2f3bab0b"
+    default['java']['jdk']['6']['x86_64']['osx_volumes_dir'] = "Java For Mac OS X 10.6"
+    default['java']['jdk']['6']['x86_64']['osx_app_name']    = "JavaForMacOSX10.6"
+    default['java']['jdk']['6']['x86_64']['osx_package_id']  = "com.apple.pkg.JavaForMacOSX106"
   end
 else
   # jdk6 attributes

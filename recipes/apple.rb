@@ -18,21 +18,10 @@
 # limitations under the License.
 #
 
-case
-when Chef::VersionConstraint.new("~> 10.7.0").include?(node.platform_version)
-  pk_volumes_dir = "Java for Mac OS X 10.7"
-  pk_app = "JavaForMacOSX10.7"
-  pk_package_id = "com.apple.pkg.JavaForMacOSX107"
-when Chef::VersionConstraint.new("~> 10.6.0").include?(node.platform_version)
-  pk_volumes_dir = "Java for Mac OS X 10.6"
-  pk_app = "JavaForMacOSX10.6"
-  pk_package_id = "com.apple.pkg.JavaForMacOSX106"
-end
-
 dmg_package "Java-6" do
-  app pk_app
-  package_id pk_package_id
-  volumes_dir pk_volumes_dir
+  app node['java']['jdk']['6']['x86_64']['osx_app_name']
+  package_id node['java']['jdk']['6']['x86_64']['osx_package_id']
+  volumes_dir node['java']['jdk']['6']['x86_64']['osx_volumes_dir']
   source node['java']['jdk']['6']['x86_64']['url']
   checksum node['java']['jdk']['6']['x86_64']['checksum']
   type "pkg"
